@@ -24,8 +24,8 @@ GeoCheckPosition >> absoluteLongitudeDeltaTo: aGeoCheckPosition [
 { #category : #computing }
 GeoCheckPosition >> angularDistanceTo: anOtherPosition [
 	^ ((self latitude sine * anOtherPosition latitude sine
-		+ (self latitude cosine * anOtherPosition latitude cosine)) * (self
-		absoluteLongitudeDeltaTo: anOtherPosition)) arcCos rad
+		+ (self longitude cosine * anOtherPosition longitude cosine))
+		* (self absoluteLongitudeDeltaTo: anOtherPosition)) arcCos rad
 ]
 
 { #category : #accessing }

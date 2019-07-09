@@ -23,7 +23,7 @@ GeoCheckAngle class >> radianAngle: aNumber [
 
 { #category : #computing }
 GeoCheckAngle >> - aGeoCheckAngle [ 
-	^ (degree - aGeoCheckAngle degree) deg
+	^ (self rad - aGeoCheckAngle rad) rad
 ]
 
 { #category : #comparing }
@@ -36,14 +36,14 @@ GeoCheckAngle >> = anObject [
 { #category : #conversion }
 GeoCheckAngle >> @ aGeoCheckAngle [
 	^ GeoCheckPosition new
-		longitude: self;
-		latitude: aGeoCheckAngle;
+		latitude: self;
+		longitude: aGeoCheckAngle;
 		yourself
 ]
 
 { #category : #computing }
 GeoCheckAngle >> abs [
-	^ self degree abs
+	^ self rad  abs
 ]
 
 { #category : #comparing }

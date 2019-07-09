@@ -13,4 +13,8 @@ GeoCheckPositionTest >> testAngularDistance [
 	position1 := 0 deg @ 0 deg.
 	position2 := 0 deg @ 90 deg.
 	self assert: (position1 angularDistanceTo: position2) closeTo: 90 deg .
+	position1 := 20 deg @ 20 deg.
+	position2 := 20 deg @ 20 deg.
+	self assert: (position1 angularDistanceTo: position2) closeTo: 0 deg .
+	
 ]

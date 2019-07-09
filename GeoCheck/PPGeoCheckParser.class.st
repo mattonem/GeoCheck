@@ -7,7 +7,8 @@ Class {
 		'keyValue',
 		'entry',
 		'list',
-		'integer'
+		'integer',
+		'start'
 	],
 	#category : #GeoCheck
 }
@@ -19,8 +20,9 @@ PPGeoCheckParser >> charNormal [
 
 { #category : #grammar }
 PPGeoCheckParser >> entry [
-	^ (${ asParser , (keyValue separatedBy: $, asParser) trim
-		, $} asParser) trim
+	^ (${ asParser
+		, (keyValue separatedBy: $, asParser) withoutSeparators trim
+		, $} asParser) trim ==> [ :parsedEntry | parsedEntry at: 2 ]
 ]
 
 { #category : #grammar }
@@ -30,7 +32,8 @@ PPGeoCheckParser >> integer [
 
 { #category : #grammar }
 PPGeoCheckParser >> keyValue [
-	^ (string , $: asParser , (string / integer)) trim
+	^ (string , $: asParser trim , (string / integer)) trim
+		==> [ :parsedKeyValue | (parsedKeyValue at: 1) -> (parsedKeyValue at: 3) ]
 ]
 
 { #category : #grammar }
@@ -38,12 +41,13 @@ PPGeoCheckParser >> list [
 	^ entry star
 ]
 
-{ #category : #accessing }
+{ #category : #grammar }
 PPGeoCheckParser >> start [
-	^ self shouldBeImplemented
+	^ list end
 ]
 
 { #category : #grammar }
 PPGeoCheckParser >> string [
- ^ ($" asParser, charNormal star flatten , $" asParser) trim
+	^ $" asParser, charNormal star flatten , $" asParser ==> [ :parsedString | parsedString at: 2]
+		
 ]

@@ -2,7 +2,7 @@ Class {
 	#name : #GeoCheckAngle,
 	#superclass : #Object,
 	#instVars : [
-		'degree'
+		'radian'
 	],
 	#category : #GeoCheck
 }
@@ -26,6 +26,11 @@ GeoCheckAngle >> - aGeoCheckAngle [
 	^ (self rad - aGeoCheckAngle rad) rad
 ]
 
+{ #category : #computinf }
+GeoCheckAngle >> / anInteger [ 
+	^(self rad / 2 ) rad
+]
+
 { #category : #comparing }
 GeoCheckAngle >> = anObject [
 	(anObject isKindOf: GeoCheckAngle)
@@ -43,7 +48,7 @@ GeoCheckAngle >> @ aGeoCheckAngle [
 
 { #category : #computing }
 GeoCheckAngle >> abs [
-	^ self rad  abs
+	^ self rad abs rad
 ]
 
 { #category : #comparing }
@@ -60,12 +65,12 @@ GeoCheckAngle >> cosine [
 
 { #category : #comparing }
 GeoCheckAngle >> degree [
-	^ degree
+	^ radian * self radianDegreeRation  
 ]
 
 { #category : #comparing }
 GeoCheckAngle >> degree: aNumber [ 
-	degree := aNumber
+	radian := aNumber / self radianDegreeRation  
 ]
 
 { #category : #comparing }
@@ -75,18 +80,18 @@ GeoCheckAngle >> hash [
 
 { #category : #comparing }
 GeoCheckAngle >> printOn: aStream [
-	degree printOn: aStream.
+	self degree printOn: aStream.
 	aStream << '°'
 ]
 
 { #category : #comparing }
 GeoCheckAngle >> rad [
-	^ degree / self radianDegreeRation
+	^ radian
 ]
 
 { #category : #accessing }
 GeoCheckAngle >> rad: aNumber [ 
-	degree := aNumber * self radianDegreeRation
+	radian := aNumber
 ]
 
 { #category : #comparing }

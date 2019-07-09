@@ -17,15 +17,24 @@ GeoCheckPosition >> = anObject [
 ]
 
 { #category : #computing }
+GeoCheckPosition >> absoluteLatitudeDeltaTo: aGeoCheckPosition [ 
+	^(latitude - aGeoCheckPosition latitude) abs 
+]
+
+{ #category : #computing }
 GeoCheckPosition >> absoluteLongitudeDeltaTo: aGeoCheckPosition [ 
 	^ (longitude - aGeoCheckPosition longitude) abs 
 ]
 
 { #category : #computing }
 GeoCheckPosition >> angularDistanceTo: anOtherPosition [
-	^ ((self latitude sine * anOtherPosition latitude sine
-		+ (self longitude cosine * anOtherPosition longitude cosine))
-		* (self absoluteLongitudeDeltaTo: anOtherPosition) cos) arcCos rad
+	| dLat dLong sin2dLat coscossin2dLong |
+	dLat := self absoluteLatitudeDeltaTo: anOtherPosition.
+	dLong := self absoluteLongitudeDeltaTo: anOtherPosition.
+	sin2dLat := (dLat / 2) sine ** 2.
+	coscossin2dLong := longitude sine * anOtherPosition longitude sine
+		* ((dLong / 2) sine ** 2).
+	^ 2 * ((sin2dLat + coscossin2dLong) sqrt arcSin) 
 ]
 
 { #category : #accessing }

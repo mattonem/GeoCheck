@@ -16,6 +16,18 @@ GeoCheckPosition >> = anObject [
 	^ false
 ]
 
+{ #category : #computing }
+GeoCheckPosition >> absoluteLongitudeDeltaTo: aGeoCheckPosition [ 
+	^ (longitude - aGeoCheckPosition longitude) abs 
+]
+
+{ #category : #computing }
+GeoCheckPosition >> angularDistanceTo: anOtherPosition [
+	^ ((self latitude sine * anOtherPosition latitude sine
+		+ (self latitude cosine * anOtherPosition latitude cosine)) * (self
+		absoluteLongitudeDeltaTo: anOtherPosition)) arcCos rad
+]
+
 { #category : #accessing }
 GeoCheckPosition >> hash [
 	^ longitude hash bitXor: latitude hash

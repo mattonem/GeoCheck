@@ -10,11 +10,14 @@ Class {
 { #category : #tests }
 GeoCheckAngleTest >> testBasicAngles [
 	| anAngle |
-	anAngle := GeoCheckAngle degreeAngle: 90.
-	self assert: anAngle degree equals: 90.
+	anAngle := 90 deg.
 	self assert: anAngle rad closeTo: 1.5708.
-	anAngle := GeoCheckAngle degreeAngle: 180.
+	anAngle := (Float pi / 2) rad.
+	self assert: anAngle degree closeTo: 90.
+	anAngle := 180 deg.
 	self assert: anAngle rad closeTo: 3.14159.
-	anAngle := GeoCheckAngle degreeAngle: 45.
+	anAngle := (Float pi) rad.
+	self assert: anAngle degree closeTo: 180.
+	anAngle := 45 deg.
 	self assert: anAngle rad closeTo: 0.785398.
 ]

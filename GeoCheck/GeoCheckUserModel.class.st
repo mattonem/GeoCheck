@@ -12,7 +12,7 @@ Class {
 
 { #category : #accessing }
 GeoCheckUserModel >> geoPosition [
-	^ Array with: latitude with: longitude 
+	^  latitude @ longitude 
 ]
 
 { #category : #accessing }
@@ -38,4 +38,9 @@ GeoCheckUserModel >> userId [
 { #category : #accessing }
 GeoCheckUserModel >> user_id [
 	self shouldBeImplemented.
+]
+
+{ #category : #accessing }
+GeoCheckUserModel >> user_id: anInteger [ 
+	userId := anInteger 
 ]

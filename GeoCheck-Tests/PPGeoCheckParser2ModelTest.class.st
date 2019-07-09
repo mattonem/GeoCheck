@@ -17,6 +17,6 @@ PPGeoCheckParser2ModelTest >> testSimpleCase [
 	self
 		assert: (model at: 1) geoPosition
 		equals:
-			{'52.986375' asDegreeAngle.
-			'-6.043701' asDegreeAngle}
+			'52.986375' asDegreeAngle @
+			'-6.043701' asDegreeAngle
 ]

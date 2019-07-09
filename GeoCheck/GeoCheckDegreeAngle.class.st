@@ -17,13 +17,13 @@ GeoCheckDegreeAngle >> degree [
 	^ value
 ]
 
-{ #category : #accessgin }
+{ #category : #accessing }
 GeoCheckDegreeAngle >> printOn:aStream [
 	value printOn: aStream.
 	aStream << '°'
 ]
 
-{ #category : #accessgin }
+{ #category : #accessing }
 GeoCheckDegreeAngle >> value: aNumber [ 
 	value := aNumber
 ]

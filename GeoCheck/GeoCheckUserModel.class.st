@@ -39,8 +39,3 @@ GeoCheckUserModel >> userId [
 GeoCheckUserModel >> user_id [
 	self shouldBeImplemented.
 ]
-
-{ #category : #accessgin }
-GeoCheckUserModel >> user_id: anInteger [ 
-	userId := anInteger
-]

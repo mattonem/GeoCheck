@@ -73,7 +73,9 @@ Smalltalk saveSession
 ```
 And press the play button on the top right coner.
 After a couple of second, the image is ready. You can quit and run it via command line.
-Or execute the app from with in the GUI and have a taste of what is Pharo --- Follow me the next section.
+The image should be located in the your `USERFOLDER/Pharo/images/<name of the image>/`.
+You can find the vm that pharo-launcher installed in `USERFOLDER/Pharo/vm/`.
+But you can also execute the app from with in the GUI and have a taste of what is Pharo --- Follow me the next section.
 ## Going futher
 To do so clear, your playground and execute something like this:
 ```

@@ -31,6 +31,16 @@ GeoCheckUserModel >> name: aString [
 ]
 
 { #category : #accessing }
+GeoCheckUserModel >> printOn: aStream [
+	aStream << 'user_id: '.
+	userId printOn: aStream.
+	aStream << Character tab <<'name:  '.
+	name printOn: aStream.
+	aStream << Character tab <<'position:  '.
+	self geoPosition printOn: aStream.
+]
+
+{ #category : #accessing }
 GeoCheckUserModel >> userId [
 	^ userId
 ]

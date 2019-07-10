@@ -13,7 +13,7 @@ Now you can uncompress the image, and execute it like so:
 ```
 /path/toTheVm/pharo --headless /path/toTheImage/geocheckRelease.image geoCheck --file="path/to/customers.txt" --target="53.339428 deg @ -6.257664 deg" --radius="100"
 
-target/radius options are optional, default will be Dublin with radius 100km 
+# target/radius options are optional, default will be Dublin with radius 100km 
 ```
 
 output:

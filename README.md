@@ -1,12 +1,16 @@
 # GeoCheck
 As I thought it would be fun to make things a bit differently, I implemented this small exercise using the [Pharo](https://pharo.org) plateform.
 Pharo is a modern Smalltalk implementation that really let developpers enjoy a fully live coding experience.
-For the purpose of the exercise, I am fully aware it might be a bit over engineered, but really it is a good experience.
+For the purpose of the exercise, I am fully aware it might be a bit over engineered, but really it was really a good time to develop it, and I hope you'll have a good time reviewing it.
 
 ## Packages overview
 GeoCheck is composed of 3 packages:
 - BaselineOfGeoCheck: it is the package that define the only dependency of the project ([PetitParser](https://github.com/moosetechnology/PetitParser) a parsing engine)
-- GeoCheck: the proper code of the app
+- GeoCheck: the proper code of the app 
+   - one file per class.
+   - one file per extension.
+   
+     An extension is a set of methods to be added to classes that already exist in the system --- eg: the method `deg` in the `Number` class that return an instance of Angle, so we can right `12 deg` and this is an Angle of 12 degree.
 - GeoCheck-Tests: well, you get it, it is all the tests.
 
 # Install
@@ -77,7 +81,7 @@ and press the play button (or do Crtl + G). It will execute the parse on the con
 ![parseFile](/parseFile.PNG)
 
 The result is an array of user nicely parsed.
-Going the to `Raw` tab of the result, a text editor will appears a the bottom of the panel. From here you can execute code on the Array instance. So, lets select people close to Dublin by executing:
+Going the to `Raw` tab of the result, a text editor will appears at the bottom of the panel. From here you can execute code on the Array instance. So, lets select people close to Dublin by executing:
 ```
 self select: [ :user | (user geoPosition earthDistanceTo: (53.339428 deg @ -6.257664 deg)) < 100  ] 
 ```

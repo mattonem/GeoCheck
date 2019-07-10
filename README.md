@@ -53,4 +53,17 @@ Client ids within 100 km of location -6.257664°  53.339428° are:
 In order to load the source code in a brand new image, I would recommend you first install [Pharo-launcher](http://pharo.org/web/download).
 
 This app let's handle, all Pharo projects.
+![launcher](/launcher.PNG)
+To start a new project, just double click `Pharo7.0-64bits (Stable)`.
+Your new project will appear in the right panel.
+Now run the project (double click).
+From here we will load the code. First open a playground, to execute some piece of code --- go to Tools -> Playground.
+![launcher](/playground.PNG)
+In the playground, copy:
+```
+Metacello new
+   baseline: 'GeoCheck';
+   repository: 'github://mattonem/GeoCheck/';
+   load.
+```
 

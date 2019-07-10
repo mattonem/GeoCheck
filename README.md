@@ -78,7 +78,9 @@ You can find the vm that pharo-launcher installed in `USERFOLDER/Pharo/vm/`.
 
 But you can also execute the app from with in the GUI and have a taste of what is Pharo --- Follow me the next section.
 ## Going futher
-To do so clear, your playground and execute something like this:
+Let's some fun and execute the application step by step (the best way to asses the architecture of a piece of code). 
+
+To do so, clear your playground and execute something like this:
 ```
 PPGeoCheckParser2Model parse: ('path/to/a/data/file.txt') asFileReference contents.
 ```

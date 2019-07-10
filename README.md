@@ -15,7 +15,7 @@ https://files.pharo.org/get-files/70/.
 Then you can download a fully ready image at: 
 https://github.com/mattonem/GeoCheck/releases/download/v1/geocheckRelease.zip
 
-Now you can uncompress the image, and execute it like so:
+Now you can uncompress the image and the VM, and execute it like so:
 
 ```
 /path/toTheVm/pharo --headless /path/toTheImage/geocheckRelease.image geoCheck --file="path/to/customers.txt" --target="53.339428 deg @ -6.257664 deg" --radius="100"

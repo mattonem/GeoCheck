@@ -1,6 +1,13 @@
 # GeoCheck
 As I thought it would be fun to make things a bit differently, I implemented this small exercise using the [Pharo](https://pharo.org) plateform.
 Pharo is a modern Smalltalk implementation that really let developpers enjoy a fully live coding experience.
+For the purpose of the exercise, I am fully aware it might be a bit over engineered, but really it is a good experience.
+
+## Packages overview
+GeoCheck is composed of 3 packages:
+- BaselineOfGeoCheck: it is the package that define the only dependency of the project ([PetitParser](https://github.com/moosetechnology/PetitParser) a parsing engine)
+- GeoCheck: the proper code of the app
+- GeoCheck-Tests: well, you get it, it is all the tests.
 
 # Install
 First of all you will need the Pharo Virutal Machine, please get the one adapted to your system here:

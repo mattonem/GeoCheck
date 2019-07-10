@@ -13,7 +13,7 @@ BaselineOfGeoCheck >> baseline: spec [
 				baseline: 'PetitParser'
 				with: [ spec
 						repository: 'github://moosetechnology/PetitParser/src';
-						loads: #core ].
+						loads: #Core ].
 			spec
 				package: 'GeoCheck' with: [ spec requires: 'PetitParser' ];
 				yourself ]

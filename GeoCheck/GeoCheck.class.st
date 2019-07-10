@@ -42,6 +42,9 @@ GeoCheck class >> sampleData [
 
 { #category : #tests }
 GeoCheck class >> takeHomeTest [
-	^ (PPGeoCheckParser2Model parse: self sampleData) select: [ :user | ((user geoPosition angularDistanceTo: 53.339428 deg @ -6.257664 deg) * 6371) < 100  ].
-	
+	<example>
+	^ ((PPGeoCheckParser2Model parse: self sampleData)
+		select: [ :user | 
+			(user geoPosition earthDistanceTo: 53.339428 deg @ -6.257664 deg)
+				< 100 ]) inspect
 ]

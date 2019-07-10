@@ -7,7 +7,7 @@ Class {
 	#category : #GeoCheck
 }
 
-{ #category : #instantiation }
+{ #category : #'instance creation' }
 GeoCheckAngle class >> degreeAngle: aNumber [
 	^ self new
 		degree: aNumber;
@@ -110,10 +110,5 @@ GeoCheckAngle >> radianDegreeRation [
 
 { #category : #computing }
 GeoCheckAngle >> sine [
-	^ self rad sin
-]
-
-{ #category : #computing }
-GeoCheckAngle >> sinus [
 	^ self rad sin
 ]

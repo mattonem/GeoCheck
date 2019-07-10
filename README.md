@@ -1,23 +1,30 @@
 # GeoCheck
-As I thought it would be fun to make things a bit differently, I implemented this small exercise using the [Pharo](https://pharo.org) plateform.
-Pharo is a modern Smalltalk implementation that really let developpers enjoy a fully live coding experience.
+As I thought it would be fun to do things a bit differently, I implemented this small exercise using the [Pharo](https://pharo.org) platform.
+
+Pharo is a modern Smalltalk implementation that really lets developers enjoy a fully live coding experience.
+
 For the purpose of the exercise, I am fully aware it might be a bit over engineered, but really it was really a good time to develop it, and I hope you'll have a good time reviewing it.
 
 ## Packages overview
 GeoCheck is composed of 3 packages:
-- BaselineOfGeoCheck: it is the package that define the only dependency of the project ([PetitParser](https://github.com/moosetechnology/PetitParser) a parsing engine)
+- BaselineOfGeoCheck: it is the package that defines the only dependency of the project ([PetitParser](https://github.com/moosetechnology/PetitParser) a parsing engine)
 - GeoCheck: the proper code of the app 
    - one file per class.
    - one file per extension.
    
-     An extension is a set of methods to be added to classes that already exist in the system --- eg: the method `deg` in the `Number` class that return an instance of Angle, so we can right `12 deg` and this is an isntance of Angle of 12 degree.
+     An extension is a set of methods to be added to classes that already exist in the system --- eg: the method `deg` in the `Number` class that return an instance of Angle, so we can write `12 deg` and this is an isntance of Angle of 12 degree.
 - GeoCheck-Tests: well, you get it, it is all the tests.
 
 # Install
 First of all you will need the Pharo Virutal Machine, please get the one adapted to your system here:
+
 https://files.pharo.org/get-files/70/.
+
 Then you can download a fully ready image at: 
+
 https://github.com/mattonem/GeoCheck/releases/download/v1/geocheckRelease.zip
+
+_(64bits --- if you need a 32bits image, you can refer to the next section, or contact me, I would be glad to provide with a 32bits version)_
 
 Now you can uncompress the image and the VM, and execute it like so:
 
@@ -27,7 +34,7 @@ Now you can uncompress the image and the VM, and execute it like so:
 # target/radius options are optional, default will be Dublin with radius 100km 
 ```
 
-output:
+expected output:
 
 ```
 This VM uses a separate heartbeat thread to update its internal clock
@@ -53,6 +60,8 @@ Client ids within 100 km of location -6.257664°  53.339428° are:
 ======================================
 ```
 
+NB: because of ressource limitation I was only able to test it in Linux environment. It should work just fine using Windows as it is running on a virtual machine.
+
 # Install from source code (using Pharo-launcher)
 In order to load the source code in a brand new image, I would recommend you first install [Pharo-launcher](http://pharo.org/web/download).
 
@@ -63,7 +72,7 @@ Your new project will appear in the right panel.
 Now run the project (double click).
 From here we will load the code. First open a playground, to execute some piece of code --- go to Tools -> Playground.
 ![launcher](/playground.PNG)
-In the playground, copy:
+In this playground, copy:
 ```
 Metacello new
    baseline: 'GeoCheck';
@@ -71,14 +80,14 @@ Metacello new
    load.
 Smalltalk saveSession
 ```
-And press the play button on the top right coner.
+And press the play button on the top right corner.
 After a couple of second, the image is ready. You can quit and run it via command line.
 The image should be located in the your `USERFOLDER/Pharo/images/<name of the image>/`.
 You can find the vm that pharo-launcher installed in `USERFOLDER/Pharo/vm/`.
 
-But you can also execute the app from with in the GUI and have a taste of what is Pharo --- Follow me the next section.
+But you can also execute the app from within the GUI and have a taste of what is Pharo --- Follow me the next section.
 ## Going futher
-Let's some fun and execute the application step by step (the best way to asses the architecture of a piece of code). 
+Let's some fun and execute the application step by step (the best way to assess the architecture of a piece of code). 
 
 To do so, clear your playground and execute something like this:
 ```
@@ -93,7 +102,7 @@ Going the to `Raw` tab of the result, a text editor will appears at the bottom o
 self select: [ :user | (user geoPosition earthDistanceTo: (53.339428 deg @ -6.257664 deg)) < 100  ] 
 ```
 Press ctrl + G to execute. 
-A new panel appears with only users within 100km from Dublin.
+A new panel appears displaying only users within 100km from Dublin.
 If you only want Ids you can execute
 ```
 self collect: #userId

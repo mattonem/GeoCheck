@@ -4,5 +4,46 @@ Pharo is a modern Smalltalk implementation that really let developpers enjoy a f
 
 # Install
 First of all you will need the Pharo Virutal Machine, please get the one adapted to your system here:
-https://files.pharo.org/get-files/70/
+https://files.pharo.org/get-files/70/.
+Then you can download a fully ready image at: 
+https://github.com/mattonem/GeoCheck/releases/download/v1/geocheckRelease.zip
+
+Now you can uncompress the image, and execute it like so:
+
+```
+/path/toTheVm/pharo --headless /path/toTheImage/geocheckRelease.image geoCheck --file="path/to/customers.txt" --target="53.339428 deg @ -6.257664 deg" --radius="100"
+
+target/radius options are optional, default will be Dublin with radius 100km 
+```
+
+output:
+
+```
+This VM uses a separate heartbeat thread to update its internal clock
+and handle events.  For best operation, this thread should run at a
+higher priority, however the VM was unable to change the priority.  The
+effect is that heavily loaded systems may experience some latency
+issues.  If this occurs, please create the appropriate configuration
+file in /etc/security/limits.d/ as shown below:
+
+cat <<END | sudo tee /etc/security/limits.d/pharo.conf
+*      hard    rtprio  2
+*      soft    rtprio  2
+END
+
+and report to the pharo mailing list whether this improves behaviour.
+
+You will need to log out and log back in for the limits to take effect.
+For more information please see
+https://github.com/OpenSmalltalk/opensmalltalk-vm/releases/tag/r3732#linux
+======================================
+Client ids within 100 km of location -6.257664°  53.339428° are:
+12 8 26 6 4 5 11 31 13 15 17 39 24 29 30 23
+======================================
+```
+
+# Install from source code (using Pharo-launcher)
+In order to load the source code in a brand new image, I would recommend you first install [Pharo-launcher](http://pharo.org/web/download).
+
+This app let's handle, all Pharo projects.
 

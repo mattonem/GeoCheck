@@ -65,5 +65,26 @@ Metacello new
    baseline: 'GeoCheck';
    repository: 'github://mattonem/GeoCheck/';
    load.
+Smalltalk saveSession
+```
+And press the play button on the top right coner.
+After a couple of second, the image is ready. You can quit and run it via command line or execute the app from with in the GUI.
+To do so clear, your playground and execute something like this:
+```
+PPGeoCheckParser2Model parse: ('path/to/a/data/file.txt') asFileReference contents.
+```
+and press the play button (or do Crtl + G). It will execute the parse on the content of the file and put the result in the right panel.
+![parseFile](/parseFile.PNG)
+
+The result is an array of user nicely parsed.
+Going the to `Raw` tab of the result, a text editor will appears a the bottom of the panel. From here you can execute code on the Array instance. So, lets select people close to Dublin by executing:
+```
+self select: [ :user | (user geoPosition earthDistanceTo: (53.339428 deg @ -6.257664 deg)) < 100  ] 
+```
+Press ctrl + G to execute. 
+A new panel appears with only users within 100km from Dublin.
+If you only want Ids you can execute
+```
+self collect: #userId
 ```
 

@@ -22,6 +22,11 @@ GeoCheckAngle class >> radianAngle: aNumber [
 ]
 
 { #category : #computing }
+GeoCheckAngle >> * anInteger [
+	^ (self rad * anInteger) rad
+]
+
+{ #category : #computing }
 GeoCheckAngle >> - aGeoCheckAngle [ 
 	^ (self rad - aGeoCheckAngle rad) rad
 ]

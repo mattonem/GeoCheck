@@ -32,9 +32,19 @@ GeoCheckPosition >> angularDistanceTo: anOtherPosition [
 	dLat := self absoluteLatitudeDeltaTo: anOtherPosition.
 	dLong := self absoluteLongitudeDeltaTo: anOtherPosition.
 	sin2dLat := (dLat / 2) sine ** 2.
-	coscossin2dLong := longitude sine * anOtherPosition longitude sine
+	coscossin2dLong := latitude cosine * anOtherPosition latitude cosine
 		* ((dLong / 2) sine ** 2).
-	^ 2 * ((sin2dLat + coscossin2dLong) sqrt arcSin) 
+	^ (2 * (sin2dLat + coscossin2dLong) sqrt arcSin )rad
+]
+
+{ #category : #computing }
+GeoCheckPosition >> earthDistanceTo: aGeoCheckPosition [ 
+	^ (self angularDistanceTo: aGeoCheckPosition) rad * self earthRadius
+]
+
+{ #category : #constants }
+GeoCheckPosition >> earthRadius [
+	^ 6371
 ]
 
 { #category : #accessing }

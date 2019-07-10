@@ -20,3 +20,12 @@ GeoCheckPositionTest >> testAngularDistance [
 	position2 := 20 deg @ 110 deg.
 	self assert: (position1 angularDistanceTo: position2) closeTo: 83.2822 deg
 ]
+
+{ #category : #tests }
+GeoCheckPositionTest >> testEarthDistance [
+	| paris newYork |
+	paris := 48.866667 deg @ 2.333333 deg.
+	newYork := 40.712784 deg @ -74.005941 deg.
+	self
+		assert: ((paris earthDistanceTo: newYork) between: 5832 and: 5837)
+]

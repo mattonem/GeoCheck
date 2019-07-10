@@ -31,16 +31,16 @@ GeoCheckAngle >> - aGeoCheckAngle [
 	^ (self rad - aGeoCheckAngle rad) rad
 ]
 
-{ #category : #computinf }
+{ #category : #computing }
 GeoCheckAngle >> / anInteger [ 
 	^(self rad / 2 ) rad
 ]
 
 { #category : #comparing }
 GeoCheckAngle >> = anObject [
-	(anObject isKindOf: GeoCheckAngle)
-		ifTrue: [ ^ self degree = anObject degree ].
-	^ false
+	^ (anObject isGeoCheckAngle)
+		and: [ self degree = anObject degree ].
+	
 ]
 
 { #category : #conversion }
@@ -58,9 +58,8 @@ GeoCheckAngle >> abs [
 
 { #category : #comparing }
 GeoCheckAngle >> closeTo: anObject [
-	(anObject isKindOf: GeoCheckAngle)
-		ifTrue: [ ^ self degree closeTo: anObject degree ].
-	^ false
+	^ anObject isGeoCheckAngle and: [ self degree closeTo: anObject degree ].
+	
 ]
 
 { #category : #computing }
@@ -84,6 +83,11 @@ GeoCheckAngle >> hash [
 ]
 
 { #category : #comparing }
+GeoCheckAngle >> isGeoCheckAngle [ 
+	^ true
+]
+
+{ #category : #comparing }
 GeoCheckAngle >> printOn: aStream [
 	self degree printOn: aStream.
 	aStream << '°'
@@ -99,7 +103,7 @@ GeoCheckAngle >> rad: aNumber [
 	radian := aNumber
 ]
 
-{ #category : #comparing }
+{ #category : #constants }
 GeoCheckAngle >> radianDegreeRation [
 	^ 180 / Float pi
 ]

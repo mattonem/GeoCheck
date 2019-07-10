@@ -1,3 +1,6 @@
+"
+This parser will properly parse the file provided. It will output tokens splitting accordingly. 
+"
 Class {
 	#name : #PPGeoCheckParser,
 	#superclass : #PPCompositeParser,

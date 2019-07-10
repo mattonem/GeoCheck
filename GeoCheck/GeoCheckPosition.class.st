@@ -10,10 +10,10 @@ Class {
 
 { #category : #accessing }
 GeoCheckPosition >> = anObject [
-	(anObject isKindOf: GeoCheckPosition)
-		ifTrue: [ ^ longitude = anObject longitude
+	^ (anObject isGeoCheckPosition)
+		and: [ longitude = anObject longitude
 				and: [ latitude = anObject latitude ] ].
-	^ false
+
 ]
 
 { #category : #computing }
@@ -50,6 +50,11 @@ GeoCheckPosition >> earthRadius [
 { #category : #accessing }
 GeoCheckPosition >> hash [
 	^ longitude hash bitXor: latitude hash
+]
+
+{ #category : #accessing }
+GeoCheckPosition >> isGeoCheckPosition [
+	^ true
 ]
 
 { #category : #accessing }

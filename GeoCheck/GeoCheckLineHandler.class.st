@@ -18,6 +18,7 @@ GeoCheckLineHandler class >> commandName [
 
 { #category : #activation }
 GeoCheckLineHandler >> activate [
+	"This is equivalent to the main method when excecuted from command line"
 	| users |
 	users := (PPGeoCheckParser2Model
 		parse: self getFileName asFileReference contents)

@@ -10,7 +10,7 @@ GeoCheck is composed of 3 packages:
    - one file per class.
    - one file per extension.
    
-     An extension is a set of methods to be added to classes that already exist in the system --- eg: the method `deg` in the `Number` class that return an instance of Angle, so we can right `12 deg` and this is an Angle of 12 degree.
+     An extension is a set of methods to be added to classes that already exist in the system --- eg: the method `deg` in the `Number` class that return an instance of Angle, so we can right `12 deg` and this is an isntance of Angle of 12 degree.
 - GeoCheck-Tests: well, you get it, it is all the tests.
 
 # Install

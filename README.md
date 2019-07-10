@@ -72,7 +72,9 @@ Metacello new
 Smalltalk saveSession
 ```
 And press the play button on the top right coner.
-After a couple of second, the image is ready. You can quit and run it via command line or execute the app from with in the GUI.
+After a couple of second, the image is ready. You can quit and run it via command line.
+Or execute the app from with in the GUI and have a taste of what is Pharo --- Follow me the next section.
+## Going futher
 To do so clear, your playground and execute something like this:
 ```
 PPGeoCheckParser2Model parse: ('path/to/a/data/file.txt') asFileReference contents.
